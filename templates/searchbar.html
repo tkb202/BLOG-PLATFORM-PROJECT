@@ -1,0 +1,27 @@
+{%extends 'baseforsearch.html'%}
+
+
+
+{%block content%}
+    <center>
+    {% if searched %}
+        <h1>
+          <style>
+            h1{ margin-top: 100px;}
+        </style>
+          You searched for {{searched}}
+        </h1>
+        {% for post in posts%}
+            <a herf="{% url 'post' post.id %}" >{{post.postname}}</a>
+        {% endfor %}
+    {% else %}
+        <h1>
+          <style>
+            h1{ margin-top: 100px;}
+        </style>
+        You forgot to search</h1>
+    {% endif%}
+   
+{%endblock%}
+<!-- {%include 'footer.html'%} -->
+

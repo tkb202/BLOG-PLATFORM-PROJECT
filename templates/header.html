@@ -1,0 +1,76 @@
+<!-- ***** Preloader Start ***** -->
+<div id="preloader">
+  <div class="jumper">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+<!-- ***** Preloader End ***** -->
+
+<!-- Header -->
+<header class="" style="background-color: rgb(35, 26, 209);">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'index' %}">
+        <h2>Blog<span style="color: rgb(29, 29, 29);font-family:cursive;background-color: rgb(253, 253, 253);">Spot</span></h2>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li>
+            <a class="nav-link" href="{% url 'index' %} ">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'blog' %}">Blogs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+          </li>
+
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'create' %}">Create</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'profile' user.id %}">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-primary" href="{% url 'logout' %}">Logout</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'signin' %}"><i class="fa fa-user"></i></a>
+          </li>
+          {% endif %}
+        </ul>
+      
+
+        <form class="d-flex" method=POST action="{%url 'searchbar'%}">
+          {% csrf_token %}
+          <input class="form-control me-2"
+          type="search" placeholder="Search topic" aria-label="Search" name="searched">
+          <button class="btn-outline-secondary" type="submit" style="color: #000000;">
+            <strong>Search</strong></button> 
+          </button>
+        </form>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- Page Content -->
+<!-- Banner Starts Here -->
+<div class="main-banner header-text" style="background-color: rgb(5, 5, 5);">
+  <div class="container-fluid">
+    <div class="owl-banner owl-carousel">
+
+    </div>
+  </div>
+</div>
+<!-- Banner Ends Here -->
